@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Balls Game</title>
+
+    <script src="balls.js"></script>
+    <style>
+        /* Styling for the balls */
+        .ball {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 20px;
+            cursor: pointer;
+        }
+
+        /* Styling for the buttons */
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: gray;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Styling for the button containers */
+        .button-container {
+            text-align: center;
+        }
+
+        /* Styling for the body */
+        body {
+            background-color: #eee;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Ball containers -->
+    <div id="red-ball-container"></div>
+    <div id="blue-ball-container"></div>
+    <div id="green-ball-container"></div>
+
+    <!-- Button containers -->
+    <div class="button-container">
+        <button id="red-ball-button">Red</button>
+    </div>
+    <div class="button-container">
+        <button id="blue-ball-button">Blue</button>
+    </div>
+    <div class="button-container">
+        <button id="green-ball-button">Green</button>
+    </div>
+
+    <script>
+        // Create the balls
+        const redBall = createBall("red");
+        const blueBall = createBall("blue");
+        const greenBall = createBall("green");
+
+        // Add the balls to their containers
+        document.getElementById("red-ball-container").appendChild(redBall);
+        document.getElementById("blue-ball-container").appendChild(blueBall);
+        document.getElementById("green-ball-container").appendChild(greenBall);
+
+        // Add click event listeners to the buttons
+        document.getElementById("red-ball-button").addEventListener("click", () => {
+            document.getElementById("red-ball-container").removeChild(redBall);
+        });
+
+        document.getElementById("blue-ball-button").addEventListener("click", () => {
+            document.getElementById("blue-ball-container").removeChild(blueBall);
+        });
+
+        document.getElementById("green-ball-button").addEventListener("click", () => {
+            document.getElementById("green-ball-container").removeChild(greenBall);
+        });
+
+        // Function to create a ball element
+        function createBall(color) {
+            const ball = document.createElement("div");
+            ball.className = "ball";
+            ball.style.backgroundColor = color;
+            return ball;
+        }
+    </script>
+</body>
+</html>
